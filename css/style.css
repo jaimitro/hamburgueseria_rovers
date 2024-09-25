@@ -1,0 +1,390 @@
+@import url("./reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+/*FONT AWESOME
+Como se usan:
+se usa la etiqueta <i> es como un span, elemento en linea
+<i class="buscar en la pagina lo que va aqui"></i>
+*/
+
+:root {
+    --color-prim: rgb(250, 87, 58);
+    --color-prim-half: rgb(255, 181, 168);
+    --color-lines: rgb(206, 206, 206);
+    --color-sec: rgb(33, 36, 46);
+    --color-b: rgb(0, 0, 0);
+    --color-w: rgb(255, 255, 255);
+    --text-col-prim: black;
+    --text-col-sec: grey;
+    --font-prim: "Roboto", sans-serif;
+    --font-sec: "Handlee", cursive;
+}
+
+body {
+    font-family: var(--font-prim);
+}
+
+/*contenedor principal para no exceder ancho*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*__________________BOTON para subir arriba_____________*/
+.boton_arriba {
+    position: fixed;
+    padding: 5px 10px;
+    background-color: rgb(250, 87, 58);
+    color: white;
+    border-radius: 5px;
+    bottom: 70px;
+    right: 10px;
+    font-size: 1.5em;
+}
+
+/*_________________bar contacto______________________*/
+.bar_contacto {
+    background-color: var(--color-sec);
+}
+
+.bar_contacto ul {
+    padding: 20px 35px;
+    text-align: center;
+    display: flex;
+    /*distribuye en flex los espacion entremedias no dejando
+    espacios a los lados. En padding arriba especificados
+    espacios a los lados*/
+    justify-content: space-between;
+
+}
+
+.bar_contacto li {
+    display: inline-block;
+}
+
+.bar_contacto li a {
+    color: var(--color-prim)
+}
+
+.bar_contacto .ocultar_nombre {
+    /*mientras estamos en mobile no se han de ver los textos*/
+    display: none;
+    color: var(--color-w)
+}
+
+/*_________________bar nav______________________*/
+.bar_nav {
+    display: flex;
+    /*flex el mismo espacio entre medias*/
+    justify-content: space-between;
+    /*para forzar a bajar el menu*/
+    flex-wrap: wrap;
+    margin: 10px 35px;
+}
+
+.bar_nav figure {
+    /*ancho del contenedor del boton menu desplegable*/
+    width: 100px;
+}
+
+.bar_nav .tres_lineas {
+    width: 30px;
+
+    div {
+        /*declaracion para dibujar las tres lineas*/
+        border-bottom: 2px solid var(--color-lines);
+        padding-bottom: 7px;
+    }
+}
+
+.bar_nav ul {
+    /*el menu ocupa 100% forzado a bajar solo*/
+    width: 100%;
+    /* text-align: center; */
+    margin: 10px 0px;
+}
+
+.bar_nav li a {
+    /*importante para que margenes funcionen*/
+    display: inline-block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-lines);
+    width: 100%;
+    text-align: center;
+    color: var(--color-prim-half);
+
+    &:hover {
+        color: var(--color-prim);
+    }
+
+    /*OJO --> buscar modo de pintar enlace de pagina en la que estas*/
+    &:visited {
+        color: var(--color-prim);
+    }
+}
+
+/*_________________HERO______________________*/
+.hero {
+    background-image: url("../images/fondo.jpg");
+    background-position: center center;
+    background-size: cover;
+    /*modo de fusion de la imagne*/
+    background-blend-mode: multiply;
+    background-color: grey;
+    /* height: 50vh; por si queria poner una altura basada
+    en el viewport*/
+    /*puedo usar heigh sin min si no uso lo de arriba*/
+    min-height: 400px;
+
+    text-align: center;
+    align-content: center;
+}
+
+.CTA {
+    padding: 0 35px;
+    text-align: left;
+}
+
+.CTA h2 {
+    font-family: var(--font-sec);
+    font-size: 2rem;
+    color: var(--color-w);
+}
+
+.CTA h4 {
+    font-size: 1.1rem;
+    color: var(--color-prim);
+    /*este empuja al de arriba y abajo*/
+    margin: 15px 0;
+}
+
+.CTA p {
+    font-size: 0.8rem;
+    color: var(--color-w);
+}
+
+.boton01 {
+    /*menor especificidad pq necesito acceder a él para el boton del final*/
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 10px 10px;
+    margin: 15px 0;
+    background-color: var(--color-prim);
+    color: var(--color-w);
+    border-radius: 5px;
+    border: 1px solid var(--color-prim);
+    transition: 0.5s;
+
+    &:hover {
+        background-color: transparent;
+        color: var(--color-prim);
+        border-radius: 5px;
+        border: 1px solid var(--color-prim);
+        transform: rotateZ(-3deg);
+    }
+}
+
+.CTA ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.CTA ul li a {
+    color: var(--color-w);
+}
+
+/*_________________OUR SERVICES______________________*/
+.our_services,
+.about_us {
+    margin: 25px 35px;
+}
+
+/*en ambas secciones se aplica*/
+section h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: var(--font-sec);
+
+
+
+    /*imagen bajo el h no se como hacer con :after*/
+    background-image: url("../images/barrahbajo.png");
+    background-repeat: no-repeat;
+    background-position: center 30px;
+    padding-bottom: 20px;
+}
+
+.span_rojo {
+    color: var(--color-prim);
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.our_services article {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-lines);
+}
+
+.our_services article i {
+    color: var(--color-prim);
+    border: 1px solid var(--color-prim);
+    padding: 8px;
+    border-radius: 5px;
+}
+
+section h4 {
+    color: var(--text-col-prim);
+    font-weight: bolder;
+    margin: 10px 0;
+}
+
+section p {
+    color: var(--text-col-sec);
+    margin-bottom: 10px;
+}
+
+section a {
+    display: inline-block;
+    color: var(--color-prim);
+    font-weight: bolder;
+    margin-top: 0px;
+}
+
+/*_________________ABOUT US______________________*/
+.about_us {
+    /*necesito un espacio para que al llegar abajo
+    no se quede el footer sobre el about*/
+    margin-bottom: 150px;
+
+}
+
+.about_us figure {
+    margin: 25px 0;
+    border: 10px solid red;
+    transform: rotateZ(10deg);
+    transition: 1s;
+}
+
+.about_us figure img {
+    transform: rotateZ(-10deg);
+    transition: 1s;
+}
+
+.about_us figure img:hover,
+.about_us figure:hover {
+    transform: rotateZ(0deg);
+    transition: 1s;
+}
+
+
+/*_________________FOOTER______________________*/
+footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: var(--color-sec);
+    color: var(--color-lines);
+}
+
+footer .legal {
+    margin: 20px 35px;
+}
+
+footer .legal a {
+    color: var(--color-lines);
+
+    &:hover {
+        color: var(--color-prim)
+    }
+}
+
+/**/
+/**/
+/**/
+/*_________________MEDIAQUERYS______________________*/
+@media(width > 768px) {
+
+    /*___________________________boton subir*/
+    .boton_arriba {
+        padding: 10px 15px;
+        border-radius: 10px;
+        bottom: 70px;
+        right: 30px;
+        font-size: 2em;
+    }
+
+    /*___________________________bar contacto*/
+    .bar_contacto .ocultar_nombre {
+        /*mientras estamos en mobile no se han de ver los textos*/
+        display: inline-block;
+        margin-left: 15px;
+    }
+
+    /*___________________________bar nav*/
+    .bar_nav .tres_lineas {
+        display: none;
+    }
+
+    .bar_nav ul {
+        /*el 100% del espacio menos lo que ocupa el logo*/
+        width: calc(100% - 100px);
+        /* text-align: center; */
+        margin: 0px 0px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        column-gap: 20px;
+    }
+
+    .bar_nav li a {
+        border-bottom: none;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+
+    }
+
+    /*___________________________our services*/
+    .servicios_flex {
+        display: flex;
+    }
+
+    .our_services article {
+        /* margin: 10px 0; */
+        padding: 20px 0;
+        border-bottom: none;
+        border-left: 1px solid var(--color-lines);
+        padding-left: 20px;
+        /*margen sino se pega al siguiente articulo*/
+        margin-right: 10px;
+    }
+
+    /*___________________________about us*/
+    .about_us>div {
+        display: flex;
+        margin: 20px 35px 0 35px;
+        column-gap: 40px;
+    }
+
+    .about_us figure {
+        margin: 0px 0;
+        width: 50%;
+    }
+
+    .about_us>div>div {
+        width: 50%;
+    }
+}
+
+/*
+POR HACER
+border que giran al pasar sobre
+
+PREGUNTAS
+¿como espacio footer al final sobre about sin forzar con un margin?
+¿linea imagen bajo los h2 con :after?
+*/
